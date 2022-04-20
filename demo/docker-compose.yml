@@ -3,6 +3,9 @@ services:
   auth:
     image: mlan/openldap
     hostname: auth
+    ports:
+      - "389:389"
+      - "636:636"
     networks:
       - backend
     command: --root-cn ${LDAPROOT_CN-admin} --root-pw ${LDAPROOT_PW-secret}
